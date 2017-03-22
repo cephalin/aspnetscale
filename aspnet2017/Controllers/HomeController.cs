@@ -8,14 +8,16 @@ namespace aspnet2017.Controllers
 {
     public class HomeController : Controller
     {
+        [OutputCache(Duration = 60)]
         public ActionResult Index()
         {
+            Session.Add("visited", "true");
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            //ViewBag.Message = "Your application description page.";
 
             return View();
         }
